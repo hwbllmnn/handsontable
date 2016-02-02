@@ -1895,6 +1895,7 @@ var $WalkontableTopOverlay = WalkontableTopOverlay;
   },
   adjustElementsSize: function() {
     var force = arguments[0] !== (void 0) ? arguments[0] : false;
+
     if (this.needFullRender || force) {
       this.adjustRootElementSize();
       this.adjustRootChildrenSize();
@@ -1904,26 +1905,26 @@ var $WalkontableTopOverlay = WalkontableTopOverlay;
     }
   },
   adjustRootElementSize: function() {
-    var masterHolder = this.wot.wtTable.holder;
-    var scrollbarWidth = masterHolder.clientWidth === masterHolder.offsetWidth ? 0 : getScrollbarWidth();
-    var overlayRoot = this.clone.wtTable.holder.parentNode;
-    var overlayRootStyle = overlayRoot.style;
-    var tableHeight;
-    if (this.trimmingContainer !== window) {
-      overlayRootStyle.width = this.wot.wtViewport.getWorkspaceWidth() - scrollbarWidth + 'px';
-    }
-    this.clone.wtTable.holder.style.width = overlayRootStyle.width;
-    tableHeight = outerHeight(this.clone.wtTable.TABLE);
-    overlayRootStyle.height = (tableHeight === 0 ? tableHeight : tableHeight + 4) + 'px';
+    // var masterHolder = this.wot.wtTable.holder;
+    // var scrollbarWidth = masterHolder.clientWidth === masterHolder.offsetWidth ? 0 : getScrollbarWidth();
+    // var overlayRoot = this.clone.wtTable.holder.parentNode;
+    // var overlayRootStyle = overlayRoot.style;
+    // var tableHeight;
+    // if (this.trimmingContainer !== window) {
+    //   overlayRootStyle.width = this.wot.wtViewport.getWorkspaceWidth() - scrollbarWidth + 'px';
+    // }
+    // this.clone.wtTable.holder.style.width = overlayRootStyle.width;
+    // tableHeight = outerHeight(this.clone.wtTable.TABLE);
+    // overlayRootStyle.height = (tableHeight === 0 ? tableHeight : tableHeight + 4) + 'px';
   },
   adjustRootChildrenSize: function() {
-    var scrollbarWidth = getScrollbarWidth();
-    this.clone.wtTable.hider.style.width = this.hider.style.width;
-    this.clone.wtTable.holder.style.width = this.clone.wtTable.holder.parentNode.style.width;
-    if (scrollbarWidth === 0) {
-      scrollbarWidth = 30;
-    }
-    this.clone.wtTable.holder.style.height = parseInt(this.clone.wtTable.holder.parentNode.style.height, 10) + scrollbarWidth + 'px';
+    // var scrollbarWidth = getScrollbarWidth();
+    // this.clone.wtTable.hider.style.width = this.hider.style.width;
+    // this.clone.wtTable.holder.style.width = this.clone.wtTable.holder.parentNode.style.width;
+    // if (scrollbarWidth === 0) {
+    //   scrollbarWidth = 30;
+    // }
+    // this.clone.wtTable.holder.style.height = parseInt(this.clone.wtTable.holder.parentNode.style.height, 10) + scrollbarWidth + 'px';
   },
   applyToDOM: function() {
     var total = this.wot.getSetting('totalRows');
