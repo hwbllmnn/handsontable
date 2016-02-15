@@ -18403,12 +18403,12 @@ function TableView(instance) {
           }
         } else {
           if ((coords.row < 0 || coords.col < 0) && (coords.row >= 0 || coords.col >= 0)) {
-            if (coords.row < 0) {
-              headerLevel = THEAD.childNodes.length - Array.prototype.indexOf.call(THEAD.childNodes, TR) - 1;
-              headerColspan = instance.getHeaderColspan(coords.col, headerLevel);
-              instance.selection.setSelectedHeaders(false, true);
-              instance.selectCell(0, coords.col, instance.countRows() - 1, coords.col + Math.max(0, headerColspan - 1));
-            }
+            // if (coords.row < 0) {
+            //   headerLevel = THEAD.childNodes.length - Array.prototype.indexOf.call(THEAD.childNodes, TR) - 1;
+            //   headerColspan = instance.getHeaderColspan(coords.col, headerLevel);
+            //   instance.selection.setSelectedHeaders(false, true);
+            //   instance.selectCell(0, coords.col, instance.countRows() - 1, coords.col + Math.max(0, headerColspan - 1));
+            // }
             if (coords.col < 0) {
               instance.selection.setSelectedHeaders(true, false);
               instance.selectCell(coords.row, 0, coords.row, instance.countCols() - 1);
