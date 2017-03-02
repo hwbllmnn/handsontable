@@ -1322,10 +1322,10 @@ function WalkontableEvent(instance) {
       }
     }
   };
-  var onMouseUp = function(event) {
+    var onMouseUp = function(event) {
     if (event.button !== 2) {
       var cell = that.parentCell(event.realTarget);
-      if (cell.TD === dblClickOrigin[0] && cell.TD === dblClickOrigin[1]) {
+        if (cell.TD === dblClickOrigin[0] && cell.TD === dblClickOrigin[1]) {
         if (hasClass(event.realTarget, 'corner')) {
           that.instance.getSetting('onCellCornerDblClick', event, cell.coords, cell.TD, that.instance);
         } else {
@@ -1333,8 +1333,8 @@ function WalkontableEvent(instance) {
         }
         dblClickOrigin[0] = null;
         dblClickOrigin[1] = null;
-      } else if (cell.TD === dblClickOrigin[0]) {
-        dblClickOrigin[1] = cell.TD;
+        } else if (cell.TD === dblClickOrigin[0]) {
+          dblClickOrigin[1] = cell.TD;
         clearTimeout(that.dblClickTimeout[1]);
         that.dblClickTimeout[1] = setTimeout(function() {
           dblClickOrigin[1] = null;
@@ -5668,7 +5668,7 @@ Handsontable.Core = function Core(rootElement, userSettings) {
   this.isEmptyCol = function(col) {
     return priv.settings.isEmptyCol.call(instance, col);
   };
-  this.selectCell = function(row, col, endRow, endCol, scrollToCell, changeListener) {
+    this.selectCell = function(row, col, endRow, endCol, scrollToCell, changeListener) {
     var coords;
     changeListener = typeof changeListener === 'undefined' || changeListener === true;
     if (typeof row !== 'number' || row < 0 || row >= instance.countRows()) {
@@ -12423,7 +12423,7 @@ var $Comments = Comments;
       this.editor.setPosition(x, y);
     }
   },
-  onMouseDown: function(event) {
+    onMouseDown: function(event) {
     this.mouseDown = true;
     if (!this.hot.view || !this.hot.view.wt) {
       return;
@@ -18786,11 +18786,11 @@ function TableView(instance) {
               headerLevel = THEAD.childNodes.length - Array.prototype.indexOf.call(THEAD.childNodes, TR) - 1;
               headerColspan = instance.getHeaderColspan(coords.col, headerLevel);
               instance.selection.setSelectedHeaders(false, true);
-              instance.selectCell(0, coords.col, instance.countRows() - 1, coords.col + Math.max(0, headerColspan - 1));
+                //instance.selectCell(0, coords.col, instance.countRows() - 1, coords.col + Math.max(0, headerColspan - 1));
             }
             if (coords.col < 0) {
               instance.selection.setSelectedHeaders(true, false);
-              instance.selectCell(coords.row, 0, coords.row, instance.countCols() - 1);
+                //instance.selectCell(coords.row, 0, coords.row, instance.countCols() - 1);
             }
           } else {
             coords.row = coords.row < 0 ? 0 : coords.row;
